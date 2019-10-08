@@ -16,7 +16,7 @@ void inverse(const Parameters<T>& params, const Transform<T>& pose, T* out) noex
   T tmp1 = std::atan2(c.y(), c.x());
   T tmp2 = std::atan2(params.b, nx1 + params.a1);
   T theta1_i = tmp1 - tmp2;
-  T theta1_ii = tmp1 + tmp2 - T(M_PI);
+  T theta1_ii = tmp1 + tmp2 - T(EIGEN_PI);
 
   // theta2 i through iv
   T tmp3 = (c.z() - params.c1);
@@ -97,10 +97,10 @@ void inverse(const Parameters<T>& params, const Transform<T>& pose, T* out) noex
   T theta4_iv = std::atan2(matrix(1,2) * cos1[3] - matrix(0,2) * sin1[3],
                    matrix(0,2) * c23[3] * cos1[3] + matrix(1,2) * c23[3] * sin1[3] - matrix(2,2) * s23[3]);
 
-  T theta4_v = theta4_i + T(M_PI);
-  T theta4_vi = theta4_ii + T(M_PI);
-  T theta4_vii = theta4_iii + T(M_PI);
-  T theta4_viii = theta4_iv + T(M_PI);
+  T theta4_v = theta4_i + T(EIGEN_PI);
+  T theta4_vi = theta4_ii + T(EIGEN_PI);
+  T theta4_vii = theta4_iii + T(EIGEN_PI);
+  T theta4_viii = theta4_iv + T(EIGEN_PI);
 
   T theta5_i = std::atan2(sqrt(1 - m[0] * m[0]), m[0]);
   T theta5_ii = std::atan2(sqrt(1 - m[1] * m[1]), m[1]);
@@ -124,10 +124,10 @@ void inverse(const Parameters<T>& params, const Transform<T>& pose, T* out) noex
   T theta6_iv = std::atan2(matrix(0,1) * s23[3] * cos1[3] + matrix(1,1) * s23[3] * sin1[3] + matrix(2,1) * c23[3],
                           -matrix(0,0) * s23[3] * cos1[3] - matrix(1, 0) * s23[3] * sin1[3] - matrix(2,0) * c23[3]);
 
-  T theta6_v = theta6_i - T(M_PI);
-  T theta6_vi = theta6_ii - T(M_PI);
-  T theta6_vii = theta6_iii - T(M_PI);
-  T theta6_viii = theta6_iv - T(M_PI);
+  T theta6_v = theta6_i - T(EIGEN_PI);
+  T theta6_vi = theta6_ii - T(EIGEN_PI);
+  T theta6_vii = theta6_iii - T(EIGEN_PI);
+  T theta6_viii = theta6_iv - T(EIGEN_PI);
 
   out[6 * 0 + 0] = (theta1_i + params.offsets[0]) * params.sign_corrections[0];
   out[6 * 0 + 1] = (theta2_i + params.offsets[1]) * params.sign_corrections[1];

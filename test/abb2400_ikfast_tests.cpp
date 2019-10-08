@@ -80,27 +80,27 @@ size_t countValidSolutions(const std::array<double, 6 * 8>& opw)
 /*!
  * \brief normalize_angle_positive
  *
- *        Normalizes the angle to be 0 to 2*M_PI
+ *        Normalizes the angle to be 0 to 2*EIGEN_PI
  *        It takes and returns radians.
  */
 static inline double normalize_angle_positive(double angle)
 {
-  return fmod(fmod(angle, 2.0*M_PI) + 2.0*M_PI, 2.0*M_PI);
+  return fmod(fmod(angle, 2.0*EIGEN_PI) + 2.0*EIGEN_PI, 2.0*EIGEN_PI);
 }
 
 
 /*!
  * \brief normalize
  *
- * Normalizes the angle to be -M_PI circle to +M_PI circle
+ * Normalizes the angle to be -EIGEN_PI circle to +EIGEN_PI circle
  * It takes and returns radians.
  *
  */
 static inline double normalize_angle(double angle)
 {
   double a = normalize_angle_positive(angle);
-  if (a > M_PI)
-    a -= 2.0 *M_PI;
+  if (a > EIGEN_PI)
+    a -= 2.0 *EIGEN_PI;
   return a;
 }
 
@@ -131,8 +131,8 @@ bool findSolInSet(const std::vector<double>& s, const std::array<double, 6 * 8>&
     for (int j = 0; j < 6; ++j)
     {
       double value = opw[i*6 + j];
-//      if (value > M_PI) value -= 2*M_PI;
-//      if (value < -M_PI) value += 2*M_PI;
+//      if (value > EIGEN_PI) value -= 2*EIGEN_PI;
+//      if (value < -EIGEN_PI) value += 2*EIGEN_PI;
       double diff = std::abs(shortest_angular_distance(s[j], value));
       if (diff > 1e-6)
       {

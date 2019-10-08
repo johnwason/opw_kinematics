@@ -55,7 +55,7 @@ template <typename T>
 void getRandomJointValues(T* q)
 {
   static std::default_random_engine en{ 42 };                  // random engine
-  static std::uniform_real_distribution<T> rg{ T(-M_PI), T(M_PI) };  // random generator
+  static std::uniform_real_distribution<T> rg{ T(-EIGEN_PI), T(EIGEN_PI) };  // random generator
 
   q[0] = rg(en);
   q[1] = rg(en);

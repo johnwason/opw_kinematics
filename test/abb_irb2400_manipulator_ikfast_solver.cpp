@@ -2546,7 +2546,7 @@ int main(int argc, char** argv)
 
 
     IkReal rot[9], trans[3];
-    IkReal sol[6] = {0.46365, 0.93285, 1.75595 - M_PI / 2.0, 6.28319, -2.68880, -0.46365};
+    IkReal sol[6] = {0.46365, 0.93285, 1.75595 - EIGEN_PI / 2.0, 6.28319, -2.68880, -0.46365};
     ComputeFk(sol, trans, rot);
     printf("FK: %f %f %f\n", trans[0],trans[1],trans[2] );
     

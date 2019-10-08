@@ -11,12 +11,13 @@ list(FIND CMAKE_CXX_COMPILE_FEATURES cxx_std_11 CXX_FEATURE_FOUND)
 # Create interface target
 add_library(${PROJECT_NAME} INTERFACE)
 target_link_libraries(${PROJECT_NAME} INTERFACE)
-target_compile_options(${PROJECT_NAME} INTERFACE -Wall -Wextra)
-
-if(CXX_FEATURE_FOUND EQUAL "-1")
-    target_compile_options(${PROJECT_NAME} INTERFACE -std=c++11)
-else()
-    target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_11)
+if(NOT MSVC)
+	target_compile_options(${PROJECT_NAME} INTERFACE -Wall -Wextra)
+	if(CXX_FEATURE_FOUND EQUAL "-1")
+		target_compile_options(${PROJECT_NAME} INTERFACE -std=c++11)
+	else()
+		target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_11)
+	endif()
 endif()
 
 target_include_directories(${PROJECT_NAME} INTERFACE

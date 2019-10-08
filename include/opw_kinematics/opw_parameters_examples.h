@@ -18,13 +18,15 @@ Parameters<T> makeIrb2400_10()
   p.c3 = T(0.755);
   p.c4 = T(0.085);
 
-  p.offsets[2] = -M_PI / 2.0;
+  p.offsets[2] = -EIGEN_PI / 2.0;
 
   return p;
 }
 
 template <typename T>
+#ifndef _MSC_VER
 __attribute__((deprecated("UN-TESTED")))
+#endif
 Parameters<T> makeFanucR2000iB_200R()
 {
   Parameters<T> p;
@@ -37,7 +39,7 @@ Parameters<T> makeFanucR2000iB_200R()
   p.c4 = T(0.235);
 
   // WARNING: This is a guess! I don't know the offets.
-  p.offsets[2] = -M_PI / 2.0;
+  p.offsets[2] = -EIGEN_PI / 2.0;
 
   return p;
 }
@@ -54,7 +56,7 @@ Parameters<T> makeKukaKR6_R700_sixx()
   p.c3 = T(0.365);
   p.c4 = T(0.080);
 
-  p.offsets[1] = -M_PI / 2.0;
+  p.offsets[1] = -EIGEN_PI / 2.0;
   p.sign_corrections[0] = -1;
   p.sign_corrections[3] = -1;
   p.sign_corrections[5] = -1;
@@ -63,7 +65,9 @@ Parameters<T> makeKukaKR6_R700_sixx()
 }
 
 template <typename T>
+#ifndef _MSC_VER
 __attribute__((deprecated("UN-TESTED")))
+#endif
 Parameters<T> makeStaubliTX40()
 {
   Parameters<T> p;
@@ -76,7 +80,7 @@ Parameters<T> makeStaubliTX40()
   p.c4 = T(0.065);
 
   // WARNING: This is a guess! I don't know the offets.
-  p.offsets[2] = -M_PI / 2.0;
+  p.offsets[2] = -EIGEN_PI / 2.0;
 
   return p;
 }
