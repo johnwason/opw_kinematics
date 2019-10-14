@@ -1,6 +1,6 @@
 sudo: required
 os: windows
-language: generic
+language: cpp
 
 cache:
   directories:
