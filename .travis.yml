@@ -22,8 +22,8 @@ install:
   - cd catkin_ws
   - choco source add -n=ros-win -s="https://roswin.azurewebsites.net/api/v2" --priority=1
   - choco install ros-melodic-ros_base -y --execution-timeout=0
-  - cmd "/C %TRAVIS_BUILD_DIR%\..\catkin_ws\src\opw_kinematics\travis_ci_windows_install.bat"
+  - cmd "/C call src/opw_kinematics/travis_ci_windows_install.bat"
   
 
 script:
-  - cmd "/C %TRAVIS_BUILD_DIR%\..\catkin_ws\src\opw_kinematics\travis_ci_windows.bat"
+  - cmd "/C call src/opw_kinematics/travis_ci_windows.bat"
