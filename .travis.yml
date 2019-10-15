@@ -15,6 +15,10 @@ env:
     - CMAKE_ARGS="-DENABLE_TESTS=ON"  
 
 install:
+  - unset CXX
+  - unset CXX_FOR_BUILD
+  - unset CC
+  - unset CC_FOR_BUILD
   - choco feature disable -n=showDownloadProgress
   - cd ..
   - mkdir -p catkin_ws/src
